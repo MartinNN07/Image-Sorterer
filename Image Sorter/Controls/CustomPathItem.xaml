@@ -32,7 +32,8 @@
             x:Name="btnClose"
             Grid.Column="1"
             Width="20"
-            HorizontalAlignment="Right">
+            HorizontalAlignment="Right"
+            Click="btnClose_Click">
 
             <Viewbox Width="10" Height="10">
                 <Grid>

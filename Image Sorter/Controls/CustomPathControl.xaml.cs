@@ -5,6 +5,7 @@ namespace Image_Sorter.Controls
 {
     public partial class CustomPathControl : UserControl
     {
+        public List<CustomPathItem> customPathItems = new List<CustomPathItem>();
         public CustomPathControl()
         {
             InitializeComponent();  
@@ -21,9 +22,12 @@ namespace Image_Sorter.Controls
             mainGrid.ColumnDefinitions[columnDefinitionsCount-1].MaxWidth = 100;
             mainGrid.ColumnDefinitions[columnDefinitionsCount].Width = new GridLength(50.0);
 
+            customPathItems.Add(customPath);
+
             Grid.SetColumn(customPath, columnDefinitionsCount-1); 
             Grid.SetColumn(btnAddPathItem, columnDefinitionsCount);
             mainGrid.Children.Add(customPath);
+
         }
     }
 }
