@@ -51,6 +51,7 @@
                 <Button
                     x:Name="btnChoosePath"
                     Grid.Column="1"
+                    VerticalContentAlignment="Center"
                     Panel.ZIndex="1"
                     Background="Transparent"
                     BorderBrush="{x:Null}"

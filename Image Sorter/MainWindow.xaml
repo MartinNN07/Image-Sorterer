@@ -27,18 +27,7 @@
             Grid.Row="1"
             Height="30"
             DefaultText="Целева папка" />
-        <TabControl Grid.Row="2">
-            <TabControl.Resources>
-                <Style TargetType="{x:Type TabPanel}">
-                    <Setter Property="HorizontalAlignment" Value="Center" />
-                </Style>
-            </TabControl.Resources>
-
-            <TabItem Header="Test 1" />
-            <TabItem Header="Test 2" />
-            <TabItem Header="Test 3" />
-            <TabItem Header="Test 4" />
-        </TabControl>
+        <userControls:CustomPathControl Grid.Row="2" Height="40" />
     </Grid>
 
 </Window>
