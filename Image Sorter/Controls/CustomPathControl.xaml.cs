@@ -14,20 +14,32 @@ namespace Image_Sorter.Controls
         private void btnAddPathItem_Click(object sender, RoutedEventArgs e)
         {
             CustomPathItem customPath = new CustomPathItem();
-
-            int columnDefinitionsCount = mainGrid.ColumnDefinitions.Count;
-            mainGrid.ColumnDefinitions.Add(new ColumnDefinition());
-
-            mainGrid.ColumnDefinitions[columnDefinitionsCount-1].Width = new GridLength(1, GridUnitType.Star);
-            mainGrid.ColumnDefinitions[columnDefinitionsCount-1].MaxWidth = 100;
-            mainGrid.ColumnDefinitions[columnDefinitionsCount].Width = new GridLength(50.0);
-
             customPathItems.Add(customPath);
 
-            Grid.SetColumn(customPath, columnDefinitionsCount-1); 
-            Grid.SetColumn(btnAddPathItem, columnDefinitionsCount);
-            mainGrid.Children.Add(customPath);
+            UpdateGrid();
+        }
 
+        public void UpdateGrid()
+        {
+            mainGrid.Children.Clear();
+            mainGrid.ColumnDefinitions.Clear();
+
+            //add CustomPathItems in Grid
+            for (int i = 0; i < customPathItems.Count; i++)
+            {
+                mainGrid.ColumnDefinitions.Add(new ColumnDefinition());
+                mainGrid.ColumnDefinitions[i].Width = new GridLength(1, GridUnitType.Star);
+                mainGrid.ColumnDefinitions[i].MaxWidth = 100;
+                Grid.SetColumn(customPathItems[i], i);
+
+                mainGrid.Children.Add(customPathItems[i]);
+            }
+
+            //add button column definition
+            mainGrid.ColumnDefinitions.Add(new ColumnDefinition());
+            mainGrid.ColumnDefinitions[customPathItems.Count].Width = new GridLength(50.0);
+            Grid.SetColumn(btnAddPathItem, customPathItems.Count);
+            mainGrid.Children.Add(btnAddPathItem);
         }
     }
 }

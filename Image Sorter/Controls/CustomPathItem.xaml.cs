@@ -14,14 +14,17 @@ namespace Image_Sorter.Controls
 
         private void btnClose_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            var mainGrid = ((MainWindow)System.Windows.Application.Current.MainWindow).customPathControl.mainGrid;
-            var customPathItems = ((MainWindow)System.Windows.Application.Current.MainWindow).customPathControl.customPathItems;
-            foreach (CustomPathItem customPathItem in customPathItems)
+            //remove CustomPathItem from the main grid
+            var mainWindow = ((MainWindow)System.Windows.Application.Current.MainWindow);
+            var customPathItems = mainWindow.customPathControl.customPathItems;
+            for (int i = 0; i < customPathItems.Count(); i++)
             {
-                if (customPathItem == this)
+                CustomPathItem item = customPathItems[i];
+                if (item == this)
                 {
-                    mainGrid.Children.Remove(customPathItem);
-                    tboxPathItem.Text = "erjgfdgjfhhd"; 
+                    mainWindow.customPathControl.customPathItems.RemoveAt(i);
+                    mainWindow.customPathControl.UpdateGrid();
+                    break;
                 }
             }
         }
