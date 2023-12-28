@@ -18,6 +18,7 @@
 
         <Grid Grid.Column="1">
             <Border
+                x:Name="ControlBorder"
                 Panel.ZIndex="2"
                 BorderBrush="Black"
                 BorderThickness="1.0" />

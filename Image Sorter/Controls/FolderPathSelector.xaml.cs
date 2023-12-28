@@ -48,10 +48,11 @@ namespace Image_Sorter.Controls
             {
                 tblockDefaultText.Visibility = Visibility.Visible;
             }
-            
-
         }
-
+        public bool IsNullOrEmpty()
+        {
+            return string.IsNullOrEmpty((string)labelFolderPath.Content);
+        }
         private void onPropertyChanged([CallerMemberName] string propertyName = null) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

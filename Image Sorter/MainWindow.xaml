@@ -20,10 +20,12 @@
         </Grid.RowDefinitions>
 
         <userControls:FolderPathSelector
+            x:Name="fpsSourceFolder"
             Grid.Row="0"
             Height="30"
             DefaultText="Папка източник" />
         <userControls:FolderPathSelector
+            x:Name="fpsDestinationFolder"
             Grid.Row="1"
             Height="30"
             DefaultText="Целева папка" />
