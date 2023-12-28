@@ -32,6 +32,7 @@ namespace Image_Sorter
             string destinationPath = (string)fpsDestinationFolder.labelFolderPath.Content;
 
             ImageDataExtracter imageDataExtracter = new ImageDataExtracter(sourcePath, destinationPath);
+            imageDataExtracter.CopyFiles();
         }
 
         private void DispalyPathFormat()
