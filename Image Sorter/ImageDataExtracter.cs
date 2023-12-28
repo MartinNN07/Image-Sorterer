@@ -17,14 +17,20 @@ namespace Image_Sorter
     {
         private struct FileData
         {
-            public FileData(FileInfo fileName, string dateTime)
+            public FileData(FileInfo fileInfo, string dateTime)
             {
-                FileName = fileName;
+                FileInfo = fileInfo;
                 Date = dateTime;
             }
 
-            public FileInfo FileName { get; }
+            public FileInfo FileInfo { get; }
             public string Date { get; }
+
+            internal void Deconstruct(out FileInfo file, out string date)
+            {
+                file = FileInfo;
+                date = Date;
+            }
         }
 
         private string m_SourcePath, m_DestinationPath;
@@ -57,17 +63,23 @@ namespace Image_Sorter
         public void CopyFiles()
         {
             this.ExtractEXIFData();
-            foreach (FileData file in files)
+            foreach ((FileInfo file, string date) in files)
             {
-                DateTime currDate = ToDate(file.Date);
+                DateTime currDate = ToDate(date);
 
                 string folderName = currDate.ToString("Y");
 
-                string destinationFolder = m_DestinationPath + '\\' + folderName;
-                string destinationFile = destinationFolder + '\\' + file.FileName.Name;
+                string destinationFolderPath = Path.Combine(m_DestinationPath, folderName);
+                string destinationFilePath = Path.Combine(destinationFolderPath, file.Name);
 
-                System.IO.Directory.CreateDirectory(destinationFolder);
-                File.Copy(file.FileName.FullName, destinationFile, true);
+                System.IO.Directory.CreateDirectory(destinationFolderPath);
+
+                if (File.Exists(destinationFilePath))
+                {
+                    File.SetAttributes(destinationFilePath, FileAttributes.Normal);
+                }
+
+                file.CopyTo(destinationFilePath, true);
 
             }
         }
