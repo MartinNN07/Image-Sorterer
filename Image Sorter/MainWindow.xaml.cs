@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Media;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Image_Sorter
 {
@@ -12,8 +13,6 @@ namespace Image_Sorter
 
         private void btnSortImages_Click(object sender, RoutedEventArgs e)
         {
-            DispalyPathFormat();
-
             if (fpsSourceFolder.IsNullOrEmpty()) 
             {
                 fpsSourceFolder.ControlBorder.BorderBrush = Brushes.Crimson;
@@ -33,19 +32,6 @@ namespace Image_Sorter
 
             ImageDataExtracter imageDataExtracter = new ImageDataExtracter(sourcePath, destinationPath);
             imageDataExtracter.CopyFiles();
-        }
-
-        private void DispalyPathFormat()
-        {
-            var customPathItems = customPathControl.customPathItems;
-
-            string Path = "";
-            foreach (var item in customPathItems)
-            {
-                Path += item.tboxPathItem.Text + "/";
-            }
-
-            tbPathFormat.Text = Path;
         }
 
     }

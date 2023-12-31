@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Image_Sorter.Controls
 {
@@ -26,6 +27,19 @@ namespace Image_Sorter.Controls
                     mainWindow.customPathControl.UpdateGrid();
                     break;
                 }
+            }
+        }
+
+        private void btnMoreOptions_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            btnMoreOptions.ContextMenu.IsOpen = true;
+        }
+
+        private void MenuItem_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (sender is MenuItem menuItem && menuItem.Header != null)
+            {
+                tboxPathItem.Text = (string)menuItem.Header;
             }
         }
     }

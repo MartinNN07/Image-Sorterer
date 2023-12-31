@@ -16,7 +16,10 @@
 
 
 
-        <Button x:Name="btnMoreOptions" Grid.Column="0">
+        <Button
+            x:Name="btnMoreOptions"
+            Grid.Column="0"
+            Click="btnMoreOptions_Click">
             <Viewbox Width="15" Height="15">
                 <Grid>
                     <Path
@@ -25,6 +28,15 @@
                         Stretch="Fill" />
                 </Grid>
             </Viewbox>
+            <Button.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Click="MenuItem_Click" Header="[DATE TAKEN]" />
+                    <MenuItem Click="MenuItem_Click" Header="[CAMERA NAME]" />
+                    <MenuItem Click="MenuItem_Click" Header="[F-NUMBER]" />
+                    <MenuItem Click="MenuItem_Click" Header="[EXPOSURE TIME]" />
+                    <MenuItem Click="MenuItem_Click" Header="[ISO SPEED]" />
+                </ContextMenu>
+            </Button.ContextMenu>
         </Button>
         <TextBox x:Name="tboxPathItem" Grid.Column="1" />
 
@@ -44,8 +56,6 @@
                 </Grid>
             </Viewbox>
         </Button>
-
-
 
     </Grid>
 </UserControl>

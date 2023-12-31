@@ -32,7 +32,9 @@
         <userControls:CustomPathControl
             x:Name="customPathControl"
             Grid.Row="2"
-            Height="40" />
+            Height="40"
+            Margin="35,0,35,0"
+            VerticalAlignment="Center" />
         <Button
             x:Name="btnSortImages"
             Grid.Row="3"
@@ -40,13 +42,6 @@
             VerticalAlignment="Center"
             Click="btnSortImages_Click"
             Content="Sort Images" />
-
-        <TextBlock
-            x:Name="tbPathFormat"
-            Grid.Row="3"
-            Width="300"
-            HorizontalAlignment="Left"
-            Text="eho" />
     </Grid>
 
 </Window>
