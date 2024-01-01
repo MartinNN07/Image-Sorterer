@@ -18,14 +18,13 @@ namespace Image_Sorter
                 fpsSourceFolder.ControlBorder.BorderBrush = Brushes.Crimson;
                 return;
             }
-            fpsSourceFolder.ControlBorder.BorderBrush = Brushes.Black;
-
+            fpsSourceFolder.ControlBorder.BorderBrush = (Brush)(new BrushConverter().ConvertFrom("#594d82")); 
             if (fpsDestinationFolder.IsNullOrEmpty()) 
             {
                 fpsDestinationFolder.ControlBorder.BorderBrush = Brushes.Crimson;
                 return;
             }
-            fpsDestinationFolder.ControlBorder.BorderBrush = Brushes.Black;
+            fpsDestinationFolder.ControlBorder.BorderBrush = (Brush)(new BrushConverter().ConvertFrom("#594d82"));
 
             string sourcePath = (string)fpsSourceFolder.labelFolderPath.Content;
             string destinationPath = (string)fpsDestinationFolder.labelFolderPath.Content;
@@ -37,6 +36,11 @@ namespace Image_Sorter
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
         }
     }
 }

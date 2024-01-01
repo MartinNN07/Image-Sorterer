@@ -10,7 +10,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="image_FILL0_wght400_GRAD0_opsz24.png" />
+    <None Remove="Styles\azis-si-izgubi-telefona-v-mola-47609.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MetadataExtractor" Version="2.8.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="image_FILL0_wght400_GRAD0_opsz24.png" />
+    <Resource Include="Styles\azis-si-izgubi-telefona-v-mola-47609.jpg" />
   </ItemGroup>
 
 </Project>

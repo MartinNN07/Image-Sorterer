@@ -6,11 +6,12 @@
     xmlns:local="clr-namespace:Image_Sorter"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:userControls="clr-namespace:Image_Sorter.Controls"
-    Title="MainWindow"
+    Title="Image Sorter"
     Width="1180"
     Height="700"
     AllowsTransparency="True"
     Background="Transparent"
+    Icon="/image_FILL0_wght400_GRAD0_opsz24.png"
     ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
@@ -39,6 +40,13 @@
                 VerticalAlignment="Center"
                 Click="btnClose_Click"
                 Style="{StaticResource CircleCloseButtonStyle}" />
+            <Button
+                x:Name="btnMinimize"
+                Margin="1066,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Click="btnMinimize_Click"
+                Style="{StaticResource CircleMinimizeButtonStyle}" />
             <userControls:FolderPathSelector
                 x:Name="fpsSourceFolder"
                 Grid.Row="1"
@@ -53,8 +61,8 @@
             <userControls:CustomPathControl
                 x:Name="customPathControl"
                 Grid.Row="3"
-                Height="40"
-                Margin="35,0,35,0"
+                Height="50"
+                Margin="59,0,35,0"
                 VerticalAlignment="Center" />
             <Button
                 x:Name="btnSortImages"
@@ -62,7 +70,9 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Click="btnSortImages_Click"
-                Content="Sort Images" />
+                Content="Sort Images"
+                Style="{StaticResource SortImagesButtonStyle}" />
+
         </Grid>
     </Border>
 </Window>
