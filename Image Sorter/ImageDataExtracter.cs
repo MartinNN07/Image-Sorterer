@@ -174,7 +174,11 @@ namespace Image_Sorter
         private string FormatDate(string date)
         {
             DateTime _date = DateTime.ParseExact(date, "yyyy:MM:dd HH:mm:ss", null);
-            string formattedString = Path.Combine(_date.ToString("yyyy"), _date.ToString("yyyy-MM (MMMM)"));
+            string monthName = _date.ToString("MMMM");
+            monthName = char.ToUpper(monthName[0]) + monthName.Substring(1);
+            string formattedString = Path.Combine(_date.ToString("yyyy"), _date.ToString($"yyyy-MM ({monthName})"));
+            
+
             return formattedString;
         }
 
