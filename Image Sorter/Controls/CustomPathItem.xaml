@@ -8,6 +8,8 @@
     d:DesignHeight="150"
     d:DesignWidth="450"
     mc:Ignorable="d">
+
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />
@@ -15,19 +17,12 @@
         </Grid.ColumnDefinitions>
 
 
-
         <Button
             x:Name="btnMoreOptions"
             Grid.Column="0"
-            Click="btnMoreOptions_Click">
-            <Viewbox Width="15" Height="15">
-                <Grid>
-                    <Path
-                        Data="M480-360 280-560h400L480-360Z"
-                        Fill="Chocolate"
-                        Stretch="Fill" />
-                </Grid>
-            </Viewbox>
+            Click="btnMoreOptions_Click"
+            Style="{StaticResource CPIButtonMoreOptions}">
+
             <Button.ContextMenu>
                 <ContextMenu>
                     <MenuItem Click="MenuItem_Click" Header="[DATE TAKEN]" />
@@ -38,24 +33,19 @@
                 </ContextMenu>
             </Button.ContextMenu>
         </Button>
-        <TextBox x:Name="tboxPathItem" Grid.Column="1" />
+        <TextBox
+            x:Name="tboxPathItem"
+            Grid.Column="1"
+            Focusable="True"
+            Style="{StaticResource CPITextBoxPathItem}" />
 
         <Button
             x:Name="btnClose"
             Grid.Column="1"
             Width="20"
             HorizontalAlignment="Right"
-            Click="btnClose_Click">
-
-            <Viewbox Width="10" Height="10">
-                <Grid>
-                    <Path
-                        Data="M256,-200 L200,-256 L424,-480 L200,-704 L256,-760 L480,-536 L704,-760 L760,-704 L536,-480 L760,-256 L704,-200 L480,-424 L256,-200 Z"
-                        Fill="Chocolate"
-                        Stretch="Fill" />
-                </Grid>
-            </Viewbox>
-        </Button>
+            Click="btnClose_Click"
+            Style="{StaticResource CPIButtonClose}" />
 
     </Grid>
 </UserControl>

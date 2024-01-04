@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -40,6 +41,7 @@ namespace Image_Sorter.Controls
             if (sender is MenuItem menuItem && menuItem.Header != null)
             {
                 tboxPathItem.Text = (string)menuItem.Header;
+                btnMoreOptions.ContextMenu.IsOpen = false;
             }
         }
     }

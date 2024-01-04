@@ -12,11 +12,16 @@
     AllowsTransparency="True"
     Background="Transparent"
     Icon="/image_FILL0_wght400_GRAD0_opsz24.png"
-    ResizeMode="NoResize"
+    ResizeMode="CanMinimize"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
     mc:Ignorable="d">
 
+    <Window.Resources>
+        <Style TargetType="{x:Type userControls:CustomPathItem}">
+            <Setter Property="Margin" Value="3" />
+        </Style>
+    </Window.Resources>
     <Border Background="#3f365f" CornerRadius="25">
 
         <Grid>
@@ -29,9 +34,11 @@
             </Grid.RowDefinitions>
 
             <Border
+                x:Name="controlHeader"
                 Grid.Row="0"
                 Background="#2B2541"
-                CornerRadius="25 25 0 0" />
+                CornerRadius="25 25 0 0"
+                MouseDown="controlHeader_MouseDown" />
             <Button
                 x:Name="btnClose"
                 Grid.Row="0"

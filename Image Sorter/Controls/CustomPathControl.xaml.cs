@@ -32,6 +32,7 @@ namespace Image_Sorter.Controls
                 mainGrid.ColumnDefinitions[i].MaxWidth = 200;
                 Grid.SetColumn(customPathItems[i], i);
 
+               
                 mainGrid.Children.Add(customPathItems[i]);
             }
 
